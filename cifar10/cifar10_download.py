@@ -10,6 +10,9 @@ FLAGS = tf.app.flags.FLAGS
 FLAGS.data_dir = 'cifar10_data/'
 
 # 如果不存在数据文件，就会执行下载
+#修改一下
+#FLAGS.data_dir=/tmp/cifar10_data   不下载，把前面斜杠去掉就可以下载了
+#FLAGS.data_dir=tmp/cifar10_data
 cifar10.maybe_download_and_extract()
 
 x=tf.train.string_input_producer
