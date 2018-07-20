@@ -1,3 +1,5 @@
+"""TensorFlow通过队列读取数据"""
+
 import os
 import scipy.misc
 import tensorflow as tf
