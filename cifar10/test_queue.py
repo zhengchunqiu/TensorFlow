@@ -43,7 +43,8 @@ def read_queue(data_dir='cifar10_data/cifar-10-batches-bin'):
     return image,label
 
 
-#tf.train.batch是按顺序读取数据，队列中的数据始终是一个有序的队列，当
+# tf.train.batch是按顺序读取数据，队列中的数据始终是一个有序的队列
+# tf.train.shuffle_batch是将队列中数据打乱后，再读取出来，因此队列中剩下的数据也是乱序的，队头也是一直在补充
 # batch_size是返回的一个batch的大小
 # num_threads，当nums_threads=1是，出队是顺序的;当num_thread>1是，数据是多进程读取的，出队的数据是无序的
 # capacity是队列的长度，比如capacity=10，开始队列内容为0，..,9=>读取5条记录后，队列剩下5,..,9，
@@ -64,16 +65,6 @@ if __name__=='__main__':
         for step in range(2):
             images,labels=sess.run([image_batch,label_batch])
             print(labels)
-
             #print(images[0],labels[0])
 
             #scipy.misc.toimage(images[0]).save('0.jpg')
-
-
-
-
-
-
-
-
-
